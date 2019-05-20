@@ -8,7 +8,22 @@ So I am removing first arguments from function as follows.
 !access_ok(VERIFY_WRITE, (void __user *)arg, _IOC_SIZE(cmd)); to
 !access_ok((void __user *)arg, _IOC_SIZE(cmd));
 
-The code compiles successfully with the followin error on loading module
+This sensor on android devices use SPI internface so the code compiles successfully with following warnings
+
+WARNING: "netlink_exit" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "netlink_init" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_hw_reset" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_power_on" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_cleanup" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_power_off" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "sendnlmsg" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+
+The following error on loading module
+
 insmod: ERROR: could not insert module goodix.ko: Unknown symbol in module
+
+Conclusion:
+
+Failed to test the module as module is not loading.
 
 
