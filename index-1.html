@@ -1,0 +1,21 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unknown </title></head><body>
+<h1 id="goodix-gf3208-for-kernel-500">Goodix-GF3208 for kernel 5.0.0</h1>
+<p>This code is written by Jiangtao Yi, <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#121;&#105;&#106;&#105;&#97;&#110;&#103;&#116;&#97;&#111;&#64;&#103;&#111;&#111;&#100;&#105;&#120;&#46;&#99;&#111;&#109;">&#121;&#105;&#106;&#105;&#97;&#110;&#103;&#116;&#97;&#111;&#64;&#103;&#111;&#111;&#100;&#105;&#120;&#46;&#99;&#111;&#109;</a> for goodix fingeprint sensor in android devices.
+I am compiling this code for linux kernel 5.0.0 using Ubuntu 19.04.
+The below function in kernel 5.0.0 only accepts two arguments. 
+So I am removing first arguments from function as follows.</p>
+<p>!access_ok(VERIFY_WRITE, (void __user <em>)arg, _IOC_SIZE(cmd)); to
+!access_ok((void __user </em>)arg, _IOC_SIZE(cmd));</p>
+<p>This sensor uses SPI internface on android devices. So the code compiles successfully with following warnings</p>
+<p>WARNING: "netlink_exit" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "netlink_init" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_hw_reset" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_power_on" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_cleanup" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "gf_power_off" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
+WARNING: "sendnlmsg" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!</p>
+<p>The following error on loading module</p>
+<p>insmod: ERROR: could not insert module goodix.ko: Unknown symbol in module</p>
+<p>Conclusion:</p>
+<p>Failed to test the module as module is not loading. Moreover it is useless too because the laptops use usb interface for this sensor.</p>
+</body></html>

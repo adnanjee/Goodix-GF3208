@@ -1,0 +1,1 @@
+cmd_/home/adnan/Downloads/Goodix-GF3208/goodix.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds  --build-id  -o /home/adnan/Downloads/Goodix-GF3208/goodix.ko /home/adnan/Downloads/Goodix-GF3208/goodix.o /home/adnan/Downloads/Goodix-GF3208/goodix.mod.o ;  true
