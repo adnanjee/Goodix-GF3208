@@ -8,7 +8,7 @@ So I am removing first arguments from function as follows.
 !access_ok(VERIFY_WRITE, (void __user *)arg, _IOC_SIZE(cmd)); to
 !access_ok((void __user *)arg, _IOC_SIZE(cmd));
 
-This sensor on android devices use SPI internface so the code compiles successfully with following warnings
+This sensor uses SPI internface on android devices. So the code compiles successfully with following warnings
 
 WARNING: "netlink_exit" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
 WARNING: "netlink_init" [/home/adnan/Downloads/fingerprint/fingerprint/goodix.ko] undefined!
@@ -24,6 +24,6 @@ insmod: ERROR: could not insert module goodix.ko: Unknown symbol in module
 
 Conclusion:
 
-Failed to test the module as module is not loading.
+Failed to test the module as module is not loading. Moreover it is useless too because the laptops use usb interface for this sensor.
 
 
